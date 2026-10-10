@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-ijas-navy: #0e3b7b;
+  --color-ijas-sky: #72a9f1;
+  --color-ijas-green: #427c54;
+  --color-ijas-maroon: #631d33;
+  --color-ijas-ink: #1f2937;
+  --color-ijas-muted: #6b7280;
+  --color-ijas-wash: #f8f9fa;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-width: 320px;
+  background: #ffffff;
+  color: var(--color-ijas-ink);
+  font-family: var(--font-sans);
+}
+
+body {
+  overflow-x: hidden;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-ijas-navy);
+  outline-offset: 3px;
+}
+
+#awards {
+  scroll-margin-top: 5.5rem;
+}
+
+.accordion-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 280ms ease;
+}
+
+.accordion-panel > div {
+  overflow: hidden;
+}
+
+.accordion-panel.is-open {
+  grid-template-rows: 1fr;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .accordion-panel {
+    transition: none;
+  }
+}
+
+@media print {
+  * {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .no-print,
+  .accordion-preview {
+    display: none !important;
+  }
+
+  .accordion-panel,
+  .accordion-panel.is-open {
+    grid-template-rows: 1fr !important;
+  }
+
+  .accordion-panel > div {
+    overflow: visible !important;
+  }
+
+  .winner-card {
+    break-inside: avoid;
+  }
+
+  header {
+    position: static !important;
+  }
+
+  body {
+    background: #ffffff;
+  }
+
+  .category-columns {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+}
