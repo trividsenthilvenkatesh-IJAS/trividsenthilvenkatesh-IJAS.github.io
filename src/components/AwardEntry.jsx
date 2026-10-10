@@ -1,7 +1,7 @@
 export default function AwardEntry({ title, students, awards = [] }) {
   return (
     <article className="winner-card rounded border border-[#e5e7eb] bg-ijas-wash px-3 py-2">
-      <h5 className="text-[15px] font-bold leading-snug text-ijas-ink">{title}</h5>
+      <p className="text-[15px] font-bold leading-snug text-ijas-ink">{title}</p>
       {awards.map((award) => {
         const epic = /epic/i.test(award);
         return (

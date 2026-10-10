@@ -1,24 +1,18 @@
 import { useId, useState } from "react";
-import DivisionColumn from "./DivisionColumn";
-
-function epicLine(item) {
-  const label = item.award.replace(/\s+-\s+/, " – ");
-  return `${label}: ${item.students} – ${item.title}`;
-}
+import GoldWinnersAccordion from "./GoldWinnersAccordion";
+import SpecialAwardsSection from "./SpecialAwardsSection";
 
 export default function CategoryAccordion({
   category,
-  epicPreview = [],
-  highSchool,
-  middleSchool,
-  defaultOpen = false,
+  collapsedSummary = "",
+  specialAwards,
+  goldWinners,
   forceOpen = false,
 }) {
-  const [open, setOpen] = useState(defaultOpen);
+  const [open, setOpen] = useState(false);
   const expanded = forceOpen || open;
   const panelId = useId();
   const headingId = useId();
-  const count = highSchool.length + middleSchool.length;
 
   return (
     <article className="border-b border-[#e5e7eb]">
@@ -46,21 +40,10 @@ export default function CategoryAccordion({
           {expanded ? null : (
             <button
               type="button"
-              className="accordion-preview w-full text-left text-[13px] leading-snug"
+              className="accordion-preview w-full text-left text-[13px] font-normal leading-snug text-ijas-muted"
               onClick={() => setOpen(true)}
             >
-              {epicPreview.length > 0 ? (
-                <span className="flex flex-col gap-1">
-                  {epicPreview.map((item) => (
-                    <span key={`${item.award}-${item.students}`} className="block font-bold text-ijas-maroon">
-                      {epicLine(item)}
-                    </span>
-                  ))}
-                  <span className="mt-1 block font-normal text-ijas-muted">{count} projects</span>
-                </span>
-              ) : (
-                <span className="text-[#374151]">{count} projects</span>
-              )}
+              {collapsedSummary}
             </button>
           )}
 
@@ -72,10 +55,15 @@ export default function CategoryAccordion({
             className={`accordion-panel ${expanded ? "is-open" : ""}`}
           >
             <div>
-              <div className="category-columns grid gap-6 sm:grid-cols-2">
-                <DivisionColumn title="High School Division" entries={highSchool} />
-                <DivisionColumn title="Middle School Division" entries={middleSchool} />
-              </div>
+              <SpecialAwardsSection
+                highSchool={specialAwards.highSchool}
+                middleSchool={specialAwards.middleSchool}
+              />
+              <GoldWinnersAccordion
+                highSchool={goldWinners.highSchool}
+                middleSchool={goldWinners.middleSchool}
+                forceOpen={forceOpen}
+              />
             </div>
           </div>
         </div>

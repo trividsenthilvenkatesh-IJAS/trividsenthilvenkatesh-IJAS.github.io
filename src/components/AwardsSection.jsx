@@ -8,8 +8,15 @@ function entryMatches(entry, needle) {
     .some((value) => value.toLowerCase().includes(needle));
 }
 
-function previewMatches(item, needle) {
-  return [item.award, item.students, item.title].some((value) => value.toLowerCase().includes(needle));
+function filterDivision(group, needle) {
+  return {
+    highSchool: group.highSchool.filter((entry) => entryMatches(entry, needle)),
+    middleSchool: group.middleSchool.filter((entry) => entryMatches(entry, needle)),
+  };
+}
+
+function hasEntries(group) {
+  return group.highSchool.length > 0 || group.middleSchool.length > 0;
 }
 
 export default function AwardsSection() {
@@ -24,12 +31,11 @@ export default function AwardsSection() {
         if (row.category.toLowerCase().includes(needle)) return row;
         return {
           ...row,
-          epicPreview: row.epicPreview.filter((item) => previewMatches(item, needle)),
-          highSchool: row.highSchool.filter((entry) => entryMatches(entry, needle)),
-          middleSchool: row.middleSchool.filter((entry) => entryMatches(entry, needle)),
+          specialAwards: filterDivision(row.specialAwards, needle),
+          goldWinners: filterDivision(row.goldWinners, needle),
         };
       })
-      .filter((row) => row.highSchool.length > 0 || row.middleSchool.length > 0);
+      .filter((row) => hasEntries(row.specialAwards) || hasEntries(row.goldWinners));
   }, [needle]);
 
   return (
