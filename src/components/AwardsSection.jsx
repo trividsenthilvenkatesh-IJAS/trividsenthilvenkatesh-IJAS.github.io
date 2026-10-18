@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import CategoryAccordion from "./CategoryAccordion";
 import FilterBar from "./FilterBar";
-import { awardsData, categories, omittedIncompleteRows } from "../data/awardsData";
+import { awardsData, categories } from "../data/awardsData";
 
 function hasEpic(project) {
   return project.awards.some((award) => /epic/i.test(award));
@@ -106,11 +106,6 @@ export default function AwardsSection() {
         <p className="mt-2 max-w-[760px] text-[15px] leading-relaxed text-[#374151]">
           Gold, Silver, and special award recipients from the 2026 State Exposition.
         </p>
-        {omittedIncompleteRows > 0 ? (
-          <p className="mt-3 max-w-[760px] text-sm leading-relaxed text-ijas-muted">
-            {omittedIncompleteRows} exhibitor rows were omitted because a student name or project title was missing.
-          </p>
-        ) : null}
 
         <FilterBar
           division={division}
