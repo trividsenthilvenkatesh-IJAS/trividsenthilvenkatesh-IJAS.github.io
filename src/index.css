@@ -37,11 +37,17 @@ body {
 .accordion-panel {
   display: grid;
   grid-template-rows: 0fr;
+  overflow: hidden;
   transition: grid-template-rows 280ms ease;
 }
 
 .accordion-panel > div {
+  min-height: 0;
   overflow: hidden;
+}
+
+.accordion-panel:not(.is-open) > div {
+  display: none;
 }
 
 .accordion-panel.is-open {
@@ -71,6 +77,7 @@ body {
   }
 
   .accordion-panel > div {
+    display: block !important;
     overflow: visible !important;
   }
 
@@ -86,7 +93,7 @@ body {
     background: #ffffff;
   }
 
-  .category-columns {
+  .category-columns.cols-2 {
     display: grid !important;
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;

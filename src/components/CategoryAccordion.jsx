@@ -4,19 +4,22 @@ import SpecialAwardsSection from "./SpecialAwardsSection";
 
 export default function CategoryAccordion({
   category,
+  projectCount = 0,
   collapsedSummary = "",
   specialAwards,
   goldWinners,
+  silverWinners,
   forceOpen = false,
 }) {
   const [open, setOpen] = useState(false);
   const expanded = forceOpen || open;
   const panelId = useId();
   const headingId = useId();
+  const projectLabel = `${projectCount} ${projectCount === 1 ? "project" : "projects"}`;
 
   return (
     <article className="border-b border-[#e5e7eb]">
-      <div className="grid gap-2 py-3 md:grid-cols-[minmax(180px,220px)_1fr] md:items-start md:gap-6 md:py-3.5">
+      <div className="grid gap-2 py-3 md:grid-cols-[minmax(190px,240px)_1fr] md:items-start md:gap-6 md:py-3.5">
         <h3 id={headingId} className="text-lg font-bold leading-snug text-ijas-navy md:text-xl">
           <button
             type="button"
@@ -25,7 +28,10 @@ export default function CategoryAccordion({
             aria-controls={panelId}
             onClick={() => setOpen((value) => !value)}
           >
-            <span>{category}</span>
+            <span>
+              <span className="block">{category}</span>
+              <span className="mt-0.5 block text-[13px] font-normal text-ijas-muted">{projectLabel}</span>
+            </span>
             <svg
               viewBox="0 0 20 20"
               className={`mt-1 h-5 w-5 shrink-0 transition-transform duration-300 motion-reduce:transition-none ${expanded ? "rotate-180" : ""}`}
@@ -37,7 +43,7 @@ export default function CategoryAccordion({
         </h3>
 
         <div>
-          {expanded ? null : (
+          {expanded || !collapsedSummary ? null : (
             <button
               type="button"
               className="accordion-preview w-full text-left text-[13px] font-normal leading-snug text-ijas-muted"
@@ -60,9 +66,17 @@ export default function CategoryAccordion({
                 middleSchool={specialAwards.middleSchool}
               />
               <GoldWinnersAccordion
+                label="Gold Level Winners"
                 highSchool={goldWinners.highSchool}
                 middleSchool={goldWinners.middleSchool}
                 forceOpen={forceOpen}
+              />
+              <GoldWinnersAccordion
+                label="Silver Level Winners"
+                highSchool={silverWinners.highSchool}
+                middleSchool={silverWinners.middleSchool}
+                forceOpen={forceOpen}
+                borderClass="border-[#c5c9d1]"
               />
             </div>
           </div>

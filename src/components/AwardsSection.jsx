@@ -1,42 +1,101 @@
 import { useMemo, useState } from "react";
 import CategoryAccordion from "./CategoryAccordion";
-import { awardsData, omittedIncompleteRows } from "../data/awardsData";
+import FilterBar from "./FilterBar";
+import { awardsData, categories, omittedIncompleteRows } from "../data/awardsData";
 
-function entryMatches(entry, needle) {
-  return [entry.title, entry.students, ...(entry.awards || [])]
-    .filter(Boolean)
-    .some((value) => value.toLowerCase().includes(needle));
+function hasEpic(project) {
+  return project.awards.some((award) => /epic/i.test(award));
 }
 
-function filterDivision(group, needle) {
+function hasOtherSpecial(project) {
+  return project.awards.some((award) => !/epic/i.test(award));
+}
+
+function matchesAwardType(project, type) {
+  if (type === "epic") return hasEpic(project);
+  if (type === "special") return hasOtherSpecial(project);
+  if (type === "gold") return project.medal === "gold";
+  if (type === "silver") return project.medal === "silver";
+  return false;
+}
+
+function highlightFor(project, awardTypes) {
+  const epicOn = awardTypes.includes("epic");
+  const specialOn = awardTypes.includes("special");
+  if (!epicOn && !specialOn) return null;
+  if (epicOn && hasEpic(project)) return "epic";
+  if (specialOn && hasOtherSpecial(project)) return "special";
+  return null;
+}
+
+function sortProjects(projects) {
+  return [...projects].sort((a, b) => {
+    const score = (project) => (hasEpic(project) ? 0 : hasOtherSpecial(project) ? 1 : 2);
+    return score(a) - score(b) || a.students.localeCompare(b.students);
+  });
+}
+
+function summaryLine(projects) {
+  const parts = [];
+  const epic = projects.filter(hasEpic).length;
+  const special = projects.filter(hasOtherSpecial).length;
+  const gold = projects.filter((project) => project.medal === "gold").length;
+  const silver = projects.filter((project) => project.medal === "silver").length;
+  if (epic) parts.push(`${epic} EPIC${epic === 1 ? "" : "s"}`);
+  if (special) parts.push(`${special} Special Award${special === 1 ? "" : "s"}`);
+  if (gold) parts.push(`${gold} Gold`);
+  if (silver) parts.push(`${silver} Silver`);
+  return parts.join(" · ");
+}
+
+function splitDivision(projects) {
   return {
-    highSchool: group.highSchool.filter((entry) => entryMatches(entry, needle)),
-    middleSchool: group.middleSchool.filter((entry) => entryMatches(entry, needle)),
+    highSchool: projects.filter((project) => project.division === "highSchool"),
+    middleSchool: projects.filter((project) => project.division === "middleSchool"),
   };
 }
 
-function hasEntries(group) {
-  return group.highSchool.length > 0 || group.middleSchool.length > 0;
-}
-
 export default function AwardsSection() {
+  const [division, setDivision] = useState("all");
   const [query, setQuery] = useState("");
+  const [category, setCategory] = useState("all");
+  const [awardTypes, setAwardTypes] = useState([]);
   const needle = query.trim().toLowerCase();
 
-  const filtered = useMemo(() => {
-    if (!needle) return awardsData;
+  function toggleAward(type) {
+    setAwardTypes((current) =>
+      current.includes(type) ? current.filter((item) => item !== type) : [...current, type],
+    );
+  }
 
+  const filteredRows = useMemo(() => {
     return awardsData
+      .filter((row) => category === "all" || row.category === category)
       .map((row) => {
-        if (row.category.toLowerCase().includes(needle)) return row;
-        return {
-          ...row,
-          specialAwards: filterDivision(row.specialAwards, needle),
-          goldWinners: filterDivision(row.goldWinners, needle),
-        };
+        const projects = sortProjects(
+          row.projects.filter((project) => {
+            if (division === "senior" && project.division !== "highSchool") return false;
+            if (division === "junior" && project.division !== "middleSchool") return false;
+            if (awardTypes.length > 0 && !awardTypes.some((type) => matchesAwardType(project, type))) return false;
+            if (!needle) return true;
+            return [project.title, project.students, row.category, ...project.awards]
+              .join("\n")
+              .toLowerCase()
+              .includes(needle);
+          }),
+        ).map((project) => ({ ...project, highlight: highlightFor(project, awardTypes) }));
+
+        return { category: row.category, projects };
       })
-      .filter((row) => hasEntries(row.specialAwards) || hasEntries(row.goldWinners));
-  }, [needle]);
+      .filter((row) => row.projects.length > 0);
+  }, [awardTypes, category, division, needle]);
+
+  const projectCount = filteredRows.reduce((sum, row) => sum + row.projects.length, 0);
+  const specialCount = filteredRows.reduce(
+    (sum, row) => sum + row.projects.filter((project) => project.awards.length > 0).length,
+    0,
+  );
+  const forceOpen = needle.length > 0 || awardTypes.length > 0;
 
   return (
     <section id="awards" className="bg-white px-5 py-8 sm:px-8 md:py-10" aria-labelledby="awards-heading">
@@ -45,33 +104,43 @@ export default function AwardsSection() {
           Category Awards
         </h2>
         <p className="mt-2 max-w-[760px] text-[15px] leading-relaxed text-[#374151]">
-          Gold Award recipients and projects that received special or EPIC awards.
+          Gold, Silver, and special award recipients from the 2026 State Exposition.
         </p>
         {omittedIncompleteRows > 0 ? (
           <p className="mt-3 max-w-[760px] text-sm leading-relaxed text-ijas-muted">
-            {omittedIncompleteRows} exhibitor rows were omitted because a student name or project
-            title was missing.
+            {omittedIncompleteRows} exhibitor rows were omitted because a student name or project title was missing.
           </p>
         ) : null}
 
-        <label className="no-print mt-5 block max-w-md text-sm font-semibold text-ijas-navy" htmlFor="category-filter">
-          Search categories, projects, or students
-          <input
-            id="category-filter"
-            type="search"
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-            placeholder="Chemistry, EPIC, or a student name"
-            className="mt-2 w-full rounded-md border border-[#d1d5db] bg-ijas-wash px-3 py-2 text-base font-normal text-ijas-ink"
-          />
-        </label>
+        <FilterBar
+          division={division}
+          onDivision={setDivision}
+          query={query}
+          onQuery={setQuery}
+          category={category}
+          onCategory={setCategory}
+          categories={categories}
+          awardTypes={awardTypes}
+          onToggleAward={toggleAward}
+          projectCount={projectCount}
+          specialCount={specialCount}
+        />
 
-        <div className="mt-6">
-          {filtered.length === 0 ? (
-            <p className="py-10 text-[#374151]">No categories match “{query.trim()}”.</p>
+        <div className="mt-2">
+          {filteredRows.length === 0 ? (
+            <p className="py-10 text-[#374151]">No projects match these filters.</p>
           ) : (
-            filtered.map((row) => (
-              <CategoryAccordion key={row.category} {...row} forceOpen={needle.length > 0} />
+            filteredRows.map((row) => (
+              <CategoryAccordion
+                key={row.category}
+                category={row.category}
+                projectCount={row.projects.length}
+                collapsedSummary={summaryLine(row.projects)}
+                specialAwards={splitDivision(row.projects.filter((project) => project.awards.length > 0))}
+                goldWinners={splitDivision(row.projects.filter((project) => project.medal === "gold"))}
+                silverWinners={splitDivision(row.projects.filter((project) => project.medal === "silver"))}
+                forceOpen={forceOpen}
+              />
             ))
           )}
         </div>

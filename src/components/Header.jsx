@@ -21,7 +21,7 @@ function NavLinks({ onNavigate, className }) {
             onClick={onNavigate}
             aria-current={link.current ? "page" : undefined}
             className={`inline-block border-b-2 pb-0.5 text-[15px] text-ijas-navy ${
-              link.current ? "border-ijas-sky font-semibold" : "border-transparent hover:border-ijas-sky"
+              link.current ? "border-ijas-navy font-semibold" : "border-transparent hover:border-ijas-navy"
             }`}
           >
             {link.label}

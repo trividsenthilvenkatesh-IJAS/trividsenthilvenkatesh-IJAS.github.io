@@ -1,8 +1,8 @@
 const pageLinks = [
   { label: "Home", href: "https://www.ijas.org/" },
   { label: "Students", href: "https://www.ijas.org/students" },
-  { label: "Teachers", href: "#teachers" },
-  { label: "Contact", href: "mailto:info@ijas.org" },
+  { label: "Teachers", href: "https://www.ijas.org/teachers" },
+  { label: "Contact", href: "#contact" },
 ];
 
 const socialLinks = [
@@ -18,33 +18,54 @@ export default function Footer() {
   return (
     <footer id="contact" className="bg-ijas-navy text-white">
       <div className="mx-auto grid max-w-[1100px] gap-8 px-6 py-10 sm:grid-cols-2 lg:grid-cols-4">
-        <div>
-          <p className="text-[15px] font-semibold leading-snug">Illinois Junior Academy of Science</p>
-          <p className="mt-2 text-sm text-white/80">Since 1927</p>
+        <div className="flex items-center gap-3">
+          <img src="/ijas-seal.png" alt="" className="h-14 w-14 shrink-0 rounded-full object-cover" />
+          <p className="max-w-[14ch] text-[15px] font-medium leading-snug text-white">
+            Illinois Junior Academy of Science
+          </p>
         </div>
-        <nav className="flex flex-col gap-1 text-sm" aria-label="Footer">
+
+        <nav className="flex flex-col gap-1.5 text-[14px]" aria-label="Footer">
           {pageLinks.map((link) => (
-            <a key={link.label} href={link.href} className="w-fit hover:underline">
+            <a key={link.label} href={link.href} className="w-fit text-white/90 hover:text-white hover:underline">
               {link.label}
             </a>
           ))}
         </nav>
-        <nav className="flex flex-col gap-1 text-sm" aria-label="Social">
+
+        <nav className="flex flex-col gap-1.5 text-[14px]" aria-label="Social">
           {socialLinks.map((link) => (
-            <a key={link.label} href={link.href} className="w-fit underline">
+            <a
+              key={link.label}
+              href={link.href}
+              className="w-fit text-white/90 hover:text-white hover:underline"
+            >
               {link.label}
             </a>
           ))}
         </nav>
-        <p className="text-sm">
-          Contact:{" "}
-          <a href="mailto:info@ijas.org" className="underline">
-            info@ijas.org
+
+        <div className="text-[14px] leading-relaxed">
+          <p>
+            Contact:{" "}
+            <a href="mailto:info@ijas.org" className="text-white hover:underline">
+              info@ijas.org
+            </a>
+          </p>
+          <a
+            href="mailto:info@ijas.org?subject=Website%20Issues%20and%20Suggestions"
+            className="mt-1 inline-block text-white underline"
+          >
+            Website Issues and Suggestions
           </a>
-        </p>
+        </div>
       </div>
-      <div className="mx-auto max-w-[1100px] px-6 pb-8 text-xs text-white/75">
-        <p>© 2026 Illinois Junior Academy of Science</p>
+
+      <div className="border-t border-white/15 bg-[#0A2F63]">
+        <div className="mx-auto flex max-w-[1100px] flex-col gap-2 px-6 py-4 text-[12px] text-white/80 sm:flex-row sm:items-center sm:justify-between">
+          <p>Designed by the IJAS Webmasters</p>
+          <p>© 2026 by Illinois Junior Academy of Science</p>
+        </div>
       </div>
     </footer>
   );
