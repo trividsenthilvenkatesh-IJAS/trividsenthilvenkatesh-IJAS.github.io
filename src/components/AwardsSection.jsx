@@ -1,14 +1,14 @@
 import { useMemo, useState } from "react";
 import CategoryAccordion from "./CategoryAccordion";
 import FilterBar from "./FilterBar";
-import { awardsData, categories } from "../data/awardsData";
+import { YEAR_EVENTS } from "../data/years";
 
 function hasEpic(project) {
   return project.awards.some((award) => /epic/i.test(award));
 }
 
 function hasOtherSpecial(project) {
-  return project.awards.some((award) => !/epic/i.test(award));
+  return project.unnamedSpecial || project.awards.some((award) => !/epic/i.test(award));
 }
 
 function matchesAwardType(project, type) {
@@ -29,20 +29,31 @@ function highlightFor(project, awardTypes) {
 }
 
 function sortProjects(projects) {
-  return [...projects].sort((a, b) => {
-    const score = (project) => (hasEpic(project) ? 0 : hasOtherSpecial(project) ? 1 : 2);
-    return score(a) - score(b) || a.students.localeCompare(b.students);
-  });
+  return [...projects].sort((a, b) => a.students.localeCompare(b.students));
 }
 
-function summaryLine(projects) {
+function placeProject(project) {
+  const epicAwards = project.awards.filter((award) => /epic/i.test(award));
+  const otherAwards = project.awards.filter((award) => !/epic/i.test(award));
+  if (epicAwards.length > 0) {
+    return { section: "epic", project: { ...project, awards: [...epicAwards, ...otherAwards], variant: "epic" } };
+  }
+  if (otherAwards.length > 0 || project.unnamedSpecial) {
+    return { section: "special", project: { ...project, awards: otherAwards, variant: "special" } };
+  }
+  if (project.medal === "gold") return { section: "gold", project: { ...project, variant: "medal" } };
+  if (project.medal === "silver") return { section: "silver", project: { ...project, variant: "medal" } };
+  return null;
+}
+
+function summaryLine(groups) {
   const parts = [];
-  const epic = projects.filter(hasEpic).length;
-  const special = projects.filter(hasOtherSpecial).length;
-  const gold = projects.filter((project) => project.medal === "gold").length;
-  const silver = projects.filter((project) => project.medal === "silver").length;
+  const epic = groups.epic.highSchool.length + groups.epic.middleSchool.length;
+  const special = groups.special.highSchool.length + groups.special.middleSchool.length;
+  const gold = groups.gold.highSchool.length + groups.gold.middleSchool.length;
+  const silver = groups.silver.highSchool.length + groups.silver.middleSchool.length;
   if (epic) parts.push(`${epic} EPIC${epic === 1 ? "" : "s"}`);
-  if (special) parts.push(`${special} Special Award${special === 1 ? "" : "s"}`);
+  if (special) parts.push(`${special} Special`);
   if (gold) parts.push(`${gold} Gold`);
   if (silver) parts.push(`${silver} Silver`);
   return parts.join(" · ");
@@ -55,12 +66,14 @@ function splitDivision(projects) {
   };
 }
 
-export default function AwardsSection() {
+export default function AwardsSection({ year }) {
+  const { awards: awardsData, categories } = YEAR_EVENTS[year];
   const [division, setDivision] = useState("all");
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("all");
   const [awardTypes, setAwardTypes] = useState([]);
   const needle = query.trim().toLowerCase();
+  const sourceCount = awardsData.reduce((sum, row) => sum + row.projects.length, 0);
 
   function toggleAward(type) {
     setAwardTypes((current) =>
@@ -72,7 +85,8 @@ export default function AwardsSection() {
     return awardsData
       .filter((row) => category === "all" || row.category === category)
       .map((row) => {
-        const projects = sortProjects(
+        const placed = { epic: [], special: [], gold: [], silver: [] };
+        sortProjects(
           row.projects.filter((project) => {
             if (division === "senior" && project.division !== "highSchool") return false;
             if (division === "junior" && project.division !== "middleSchool") return false;
@@ -83,18 +97,41 @@ export default function AwardsSection() {
               .toLowerCase()
               .includes(needle);
           }),
-        ).map((project) => ({ ...project, highlight: highlightFor(project, awardTypes) }));
+        ).forEach((project) => {
+          const placedProject = placeProject(project);
+          if (!placedProject) return;
+          placed[placedProject.section].push({
+            ...placedProject.project,
+            highlight: highlightFor(project, awardTypes),
+          });
+        });
 
-        return { category: row.category, projects };
+        return {
+          category: row.category,
+          projectCount:
+            placed.epic.length + placed.special.length + placed.gold.length + placed.silver.length,
+          groups: {
+            epic: splitDivision(placed.epic),
+            special: splitDivision(placed.special),
+            gold: splitDivision(placed.gold),
+            silver: splitDivision(placed.silver),
+          },
+        };
       })
-      .filter((row) => row.projects.length > 0);
-  }, [awardTypes, category, division, needle]);
+      .filter((row) => row.projectCount > 0);
+  }, [awardTypes, awardsData, category, division, needle]);
 
-  const projectCount = filteredRows.reduce((sum, row) => sum + row.projects.length, 0);
-  const specialCount = filteredRows.reduce(
-    (sum, row) => sum + row.projects.filter((project) => project.awards.length > 0).length,
-    0,
-  );
+  const projectCount = filteredRows.reduce((sum, row) => sum + row.projectCount, 0);
+  const specialCount = filteredRows.reduce((sum, row) => {
+    const groups = row.groups;
+    return (
+      sum +
+      groups.epic.highSchool.length +
+      groups.epic.middleSchool.length +
+      groups.special.highSchool.length +
+      groups.special.middleSchool.length
+    );
+  }, 0);
   const forceOpen = needle.length > 0 || awardTypes.length > 0;
 
   return (
@@ -104,7 +141,7 @@ export default function AwardsSection() {
           Category Awards
         </h2>
         <p className="mt-2 max-w-[760px] text-[15px] leading-relaxed text-[#374151]">
-          Gold, Silver, and special award recipients from the 2026 State Exposition.
+          Gold, Silver, and special award recipients from the {year} State Exposition.
         </p>
 
         <FilterBar
@@ -122,18 +159,21 @@ export default function AwardsSection() {
         />
 
         <div className="mt-2">
-          {filteredRows.length === 0 ? (
+          {sourceCount === 0 ? (
+            <p className="py-10 text-[#374151]">No award records are listed for {year} yet.</p>
+          ) : filteredRows.length === 0 ? (
             <p className="py-10 text-[#374151]">No projects match these filters.</p>
           ) : (
             filteredRows.map((row) => (
               <CategoryAccordion
                 key={row.category}
                 category={row.category}
-                projectCount={row.projects.length}
-                collapsedSummary={summaryLine(row.projects)}
-                specialAwards={splitDivision(row.projects.filter((project) => project.awards.length > 0))}
-                goldWinners={splitDivision(row.projects.filter((project) => project.medal === "gold"))}
-                silverWinners={splitDivision(row.projects.filter((project) => project.medal === "silver"))}
+                projectCount={row.projectCount}
+                collapsedSummary={summaryLine(row.groups)}
+                epicAwards={row.groups.epic}
+                specialAwards={row.groups.special}
+                goldWinners={row.groups.gold}
+                silverWinners={row.groups.silver}
                 forceOpen={forceOpen}
               />
             ))

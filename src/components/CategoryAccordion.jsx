@@ -1,4 +1,5 @@
 import { useId, useState } from "react";
+import EpicAwardsSection from "./EpicAwardsSection";
 import GoldWinnersAccordion from "./GoldWinnersAccordion";
 import SpecialAwardsSection from "./SpecialAwardsSection";
 
@@ -6,6 +7,7 @@ export default function CategoryAccordion({
   category,
   projectCount = 0,
   collapsedSummary = "",
+  epicAwards,
   specialAwards,
   goldWinners,
   silverWinners,
@@ -61,6 +63,7 @@ export default function CategoryAccordion({
             className={`accordion-panel ${expanded ? "is-open" : ""}`}
           >
             <div>
+              <EpicAwardsSection highSchool={epicAwards.highSchool} middleSchool={epicAwards.middleSchool} />
               <SpecialAwardsSection
                 highSchool={specialAwards.highSchool}
                 middleSchool={specialAwards.middleSchool}

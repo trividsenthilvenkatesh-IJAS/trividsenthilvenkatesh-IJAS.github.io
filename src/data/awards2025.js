@@ -1,4 +1,4 @@
-// Gold, Silver, and special-award recipients.
+// 2025 State Exposition. Gold, Silver, and special-award recipients.
 // High school is grades 9–12. Middle school is grades 7–8.
 // Rows missing a student name or project title were omitted.
 export const omittedIncompleteRows = 3;
@@ -6072,3 +6072,5 @@ export const awardsData = [
 ];
 
 export const categories = awardsData.map((row) => row.category);
+
+export const awards2025 = awardsData;
