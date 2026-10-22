@@ -8,7 +8,6 @@ const AWARD_TYPES = [
   { id: "epic", label: "EPIC" },
   { id: "special", label: "Special awards" },
   { id: "gold", label: "Gold" },
-  { id: "silver", label: "Silver" },
 ];
 
 function countLabel(count, singular, plural) {

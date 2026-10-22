@@ -1,7 +1,10 @@
 // 2026 State Exposition. Gold, Silver, and special-award recipients.
 // High school is grades 9–12. Middle school is grades 7–8.
 // Award Recipient "yes" with no named award stays a special honor.
+// Thermo Fisher/ISEF Finalist values are special awards.
 // CANCEL, NOSHOW, PARTICIPATION, and BRONZE rows are included only with a special honor.
+export const omittedIncompleteRows = 3;
+
 export const awards2026 = [
   {
     "category": "Aerospace Science",
@@ -543,6 +546,7 @@ export const awards2026 = [
         "title": "Think Fast! Remember?",
         "students": "Miriam Barber",
         "awards": [
+          "Thermo Fisher - State",
           "$100 Award from the School of Psychological and Behavioral Sciences",
           "Exceptional Project in Behavioral Sciences - Junior"
         ],
@@ -599,7 +603,7 @@ export const awards2026 = [
         "division": "middleSchool"
       },
       {
-        "title": "Rhythm Recall",
+        "title": "Rhythm  Recall",
         "students": "Zoe Kerr",
         "awards": [],
         "medal": "gold",
@@ -697,10 +701,11 @@ export const awards2026 = [
       {
         "title": "Are you smarter than a middle schooler?",
         "students": "Addison June Hickey & Nora Kate Marek",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - IJAS Region 5"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "The Impact of Long-Term Dance Training (≥5 Years) on Cognition and Self-Reported Anxiety in Female Adolescents",
@@ -736,6 +741,7 @@ export const awards2026 = [
         "title": "Playing with Confidence",
         "students": "Violet Ophelia Louw",
         "awards": [
+          "Thermo Fisher - State",
           "American Psychological Association Award",
           "Exceptional Project in Behavioral Sciences - Junior"
         ],
@@ -759,26 +765,29 @@ export const awards2026 = [
       {
         "title": "Beyond the grade book",
         "students": "Libby Bigenwald",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - IJAS Region 6"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "It's Honestly Horrible: When Honesty is the Best Policy",
         "students": "Madeline Korey",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - IJAS Region 6"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "Music’s Impact on Attention",
         "students": "Yejoo Chang",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - IJAS Region 6"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "Gender Under Pressure: Investigating Conformity Between Genders",
@@ -790,10 +799,11 @@ export const awards2026 = [
       {
         "title": "Fooled by the Machine? Testing AI Detection Across Age Groups.",
         "students": "Aiperi Abylova",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - IJAS Region 6"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "Mindfulness is Key: Unlocking the Science Behind Becoming Calm",
@@ -812,10 +822,11 @@ export const awards2026 = [
       {
         "title": "Why So Scared: Does Experience Have an Effect on Fear?",
         "students": "Asher Agran",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - State"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "The Effect of Biophilic Architecture on High school Students",
@@ -1053,10 +1064,11 @@ export const awards2026 = [
       {
         "title": "AI Dependency",
         "students": "Aayush Aaryakumar & Vihaan Bahl",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - State"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "How Does the Time of Day Affect Memory?",
@@ -1162,9 +1174,10 @@ export const awards2026 = [
         "division": "highSchool"
       },
       {
-        "title": "A Beekeeper’s Study of Honey Glucose Levels",
+        "title": "A Beekeeper’s Study of Honey  Glucose Levels",
         "students": "Lyuben Andonov Kyutukchiev",
         "awards": [
+          "Thermo Fisher - IJAS Region 3",
           "Exceptional Project in Biochemistry - Junior"
         ],
         "medal": "gold",
@@ -1196,10 +1209,11 @@ export const awards2026 = [
       {
         "title": "Diabetic Dilemma: Simple or Complex?",
         "students": "Aiden Bluhm & Grayson Krenz",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - IJAS Region 5"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "Comparative HPLC Analysis of Chlorogenic Acid Content in Self-Grown and Commercial Plant Samples",
@@ -1278,6 +1292,7 @@ export const awards2026 = [
         "title": "Zap to Grow? Electrified Water Helps Plant Growth.",
         "students": "Dhruv Karthik Nalla, Neil P Purushotham, & Prathik Vadakattu",
         "awards": [
+          "Thermo Fisher - IJAS Region 1",
           "Ball Seed - Outstanding Project in Botany $100"
         ],
         "medal": "gold",
@@ -1286,10 +1301,11 @@ export const awards2026 = [
       {
         "title": "Sprouting Success Impact of Soil Thermal Environment on Early Growth and Germination Success in Corn",
         "students": "Chase Campbell & Hayden Ronald Jarboe",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - State"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "The Evaluation of Plant Growth in Soil, Water, and Hydroponics",
@@ -1359,10 +1375,11 @@ export const awards2026 = [
       {
         "title": "Keep Those Flowers Fresh!",
         "students": "Sanaa Imara Muhisani",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - IJAS Region 3"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "The Effect of Microplastics on Raphanus Sativus",
@@ -1378,6 +1395,7 @@ export const awards2026 = [
         "title": "How Does Temperature Affect Bean Growth",
         "students": "Henry James Smith",
         "awards": [
+          "Thermo Fisher - IJAS Region 3",
           "Exceptional Project in Botany - Senior"
         ],
         "medal": "gold",
@@ -1405,7 +1423,7 @@ export const awards2026 = [
         "division": "highSchool"
       },
       {
-        "title": "Effect of Boiling Time Moringa Leaves on Distillation of Saltwater to Freshwater Nutritional Value",
+        "title": "Effect of Boiling Time  Moringa Leaves on Distillation of Saltwater to Freshwater  Nutritional Value",
         "students": "Ashley Manoj",
         "awards": [],
         "medal": "gold",
@@ -1415,6 +1433,7 @@ export const awards2026 = [
         "title": "The Magic of Fungi: How do Mycorrhizae Affect Tree Growth?",
         "students": "Portia Ofelia Dalskov",
         "awards": [
+          "Thermo Fisher - State",
           "Exceptional Project in Botany - Junior"
         ],
         "medal": "gold",
@@ -1430,10 +1449,11 @@ export const awards2026 = [
       {
         "title": "Microplastics in Water vs. Soil: Which is Worse for Plants?",
         "students": "Brian Soh",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - IJAS Region 6"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "Plants Under Pressure: Testing the Effects of Light, Water, and Nutrients",
@@ -1480,10 +1500,11 @@ export const awards2026 = [
       {
         "title": "Effects of Drought Stress on Growth in Brassica rapa",
         "students": "Brayden Hong",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - IJAS Region 6"
+        ],
         "medal": "silver",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "The Effectiveness of Kombucha as a Biofertilizer",
@@ -1533,6 +1554,7 @@ export const awards2026 = [
         "title": "Different Waters' Effect on Plant Growth",
         "students": "Sara Elizabeth Wilner",
         "awards": [
+          "Thermo Fisher - State",
           "Exceptional Project in Botany - Junior"
         ],
         "medal": "gold",
@@ -1591,6 +1613,7 @@ export const awards2026 = [
         "title": "Hydrogel-based dendritic cell recruitment for induced protein production",
         "students": "Max Wang",
         "awards": [
+          "ISEF Finalist",
           "Physics Luncheon - Invitation Only"
         ],
         "medal": "gold",
@@ -1654,7 +1677,7 @@ export const awards2026 = [
         "students": "Abhinav Sathamraju Venkata",
         "awards": [
           "SCARF Future Health Leader Fellowship",
-          "Reproductive Medicine Institute - Exceptional Project in Women's Health $50"
+          "Reproductive Medicine Institute - Exceptional Project in Women's Health  $50"
         ],
         "medal": "gold",
         "division": "highSchool"
@@ -1834,10 +1857,11 @@ export const awards2026 = [
       {
         "title": "Metal's Greatest Enemy- Rust",
         "students": "Bennett Sherman",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - State"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "Marshmallow Meltdown",
@@ -1903,7 +1927,7 @@ export const awards2026 = [
         "division": "middleSchool"
       },
       {
-        "title": "Can You Stomach It? Observing How Foods Dissolve in Gastric Acid",
+        "title": "Can You Stomach It?  Observing How Foods Dissolve in Gastric Acid",
         "students": "Rafael Alexander Den Arens",
         "awards": [],
         "medal": "silver",
@@ -1933,15 +1957,17 @@ export const awards2026 = [
       {
         "title": "Crime Scene Chemistry",
         "students": "Gabi Sarka Capin",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - IJAS Region 3"
+        ],
         "medal": "silver",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "Cookie Chemistry",
         "students": "Kaylee Raine Villaflor Sager",
         "awards": [
+          "Thermo Fisher - IJAS Region 3",
           "Exceptional Project in Chemistry - Junior"
         ],
         "medal": "gold",
@@ -1950,26 +1976,29 @@ export const awards2026 = [
       {
         "title": "How Eco-Friendly Is Your Sunscreen?",
         "students": "Cienna Bernardo",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - IJAS Region 3"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "Which Lotion Brand will Moisturize the Best?",
         "students": "Martine Somol & Rihanna Kayleigh Williams",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - IJAS Region 3"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "Thermal Effects on Luminol Chemiluminescence",
         "students": "Katie Mei",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - State"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "The FAT Truth - Evaluating Method Reliability",
@@ -1983,10 +2012,11 @@ export const awards2026 = [
       {
         "title": "Which Type of Fruit Solidifies Gelatin Best?",
         "students": "Isabella Ana Talos",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - IJAS Region 3"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "How do different types of nail polishes affect the longevity of the polish?",
@@ -2026,10 +2056,11 @@ export const awards2026 = [
       {
         "title": "Reengineering Electrical Performance In Electrochemical Systems: Fuel Cell Design Through Ionic Dynamics",
         "students": "Sean Zachary Rechitsky",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - IJAS Region 6"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "The Longevity of Icepack Chemicals: Which Mimicked Icepack Lasts the Longest?",
@@ -2062,10 +2093,11 @@ export const awards2026 = [
       {
         "title": "Can Chromatography Separate Dyes in Different Colors of Candy?",
         "students": "anam farid & Rabia Amelia Hashim",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - IJAS Region 6"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "Which Fruit Has the Highest Acidity Level?",
@@ -2101,6 +2133,7 @@ export const awards2026 = [
         "title": "Reef Relief: Using eggshells to stop coral bleaching",
         "students": "Nanami Geiger",
         "awards": [
+          "Thermo Fisher - State",
           "Exceptional Project in Chemistry - Junior"
         ],
         "medal": "gold",
@@ -2277,10 +2310,11 @@ export const awards2026 = [
       {
         "title": "Convolutional Kernel Size in Handwritten Character Recognition Accuracy of the EMNIST Dataset",
         "students": "Om Kanabar",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - IJAS Region 3"
+        ],
         "medal": "silver",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "OvaScan: Enhancing Ovarian Cancer Diagnosis with a Radiomic-Stable, Autonomous Deep Learning Pipeline for Scalable On-Device Deployment",
@@ -2316,6 +2350,7 @@ export const awards2026 = [
         "title": "A Probabilistic Framework for Genetic Stratification in Autism",
         "students": "Amritha Priya Praveen",
         "awards": [
+          "ISEF Finalist",
           "Exceptional Project in Computer Science - Senior"
         ],
         "medal": "gold",
@@ -2325,6 +2360,7 @@ export const awards2026 = [
         "title": "Spatial Transcriptomics-Conditioned Latent Diffusion AI Models for Synthetic Histopathology Tissue Patch Image Generation",
         "students": "Arnav Nitin Chaphalkar",
         "awards": [
+          "ISEF Finalist",
           "Region 6 - Citadel Securities Innovation Prize $100",
           "Exceptional Project in Product Consumer Science - Senior"
         ],
@@ -2421,7 +2457,7 @@ export const awards2026 = [
           "Exceptional Project in Earth Science - Senior",
           "AEG Exceptional Project in Geological Sciences - Runner-up Senior $50"
         ],
-        "medal": "other",
+        "medal": "bronze",
         "division": "highSchool"
       },
       {
@@ -2461,6 +2497,7 @@ export const awards2026 = [
         "title": "A Tale of Two Soils",
         "students": "Katie Hope Muhr",
         "awards": [
+          "Thermo Fisher - IJAS Region 6",
           "Exceptional Project in Earth Science - Junior",
           "Association for Women Geoscientists Award"
         ],
@@ -2471,6 +2508,7 @@ export const awards2026 = [
         "title": "The effect of various concentrations of road salt on plant growth",
         "students": "Adhya Garlapati",
         "awards": [
+          "Thermo Fisher - IJAS Region 6",
           "AEG Exceptional Project in Geological Sciences - Runner-up Junior $50",
           "Association for Women Geoscientists Award"
         ],
@@ -2516,6 +2554,7 @@ export const awards2026 = [
         "title": "CANE YOU FEEL IT? Evaluating Material Detection with an Electronic Cane",
         "students": "Mariah Lynn Bundy & Rylan Lynne Van Fleet",
         "awards": [
+          "Thermo Fisher - State",
           "Exceptional Project in Electronics - Junior"
         ],
         "medal": "gold",
@@ -2540,10 +2579,11 @@ export const awards2026 = [
       {
         "title": "How Do Different Building Materials Affect Wi-Fi Signal Strength?",
         "students": "Laurie Lynn Loesche",
-        "awards": [],
-        "medal": "other",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "awards": [
+          "Thermo Fisher - IJAS Region 12"
+        ],
+        "medal": "noshow",
+        "division": "middleSchool"
       },
       {
         "title": "The Seebeck Effect",
@@ -2651,6 +2691,7 @@ export const awards2026 = [
         "title": "Which Origami Design is the Best for Efficient Portable Solar Panels",
         "students": "Bahtiar Baghmanli",
         "awards": [
+          "Thermo Fisher - IJAS Region 12",
           "Exceptional Project in Engineering - Junior",
           "Region 12 - Citadel Securities Innovation Prize $100"
         ],
@@ -2667,10 +2708,11 @@ export const awards2026 = [
       {
         "title": "Stop the Slip: Designing a Safer Skate Guard",
         "students": "Sara Beth Tantleff",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - State"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "Floating House Reimagened",
@@ -2694,7 +2736,7 @@ export const awards2026 = [
         "division": "middleSchool"
       },
       {
-        "title": "Spin Stitch",
+        "title": "Spin  Stitch",
         "students": "Kyla Visaya Ford & Sloane Polkow",
         "awards": [],
         "medal": "gold",
@@ -2721,10 +2763,11 @@ export const awards2026 = [
       {
         "title": "ADA Accessible Shower Organizer",
         "students": "Cora Adelyn Fulton",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - IJAS Region 3"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "Optimizing Earthquake-Resistant Structural Design Using Digital Simulation",
@@ -2748,6 +2791,7 @@ export const awards2026 = [
         "title": "Rolling With It: Testing Rover Wheel Designs",
         "students": "Sean Doyun Kim",
         "awards": [
+          "Thermo Fisher - IJAS Region 6",
           "Exceptional Project in Engineering - Junior"
         ],
         "medal": "gold",
@@ -2913,10 +2957,11 @@ export const awards2026 = [
       {
         "title": "Nature to the Rescue Using Straw and Mushrooms to Fix Oil-Contaminated Soil",
         "students": "Reese Nichole Holst & Karlee Allyson Rampley",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - State"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "Breaking Down Bags",
@@ -2943,6 +2988,7 @@ export const awards2026 = [
         "title": "Predictive Effects of Nitrate and Phosphate Enrichment and Copper Sulfate Stress on Algal Bloom Formation in Freshwater Systems",
         "students": "Anushka Moonat",
         "awards": [
+          "Thermo Fisher - IJAS Region 10",
           "Exceptional Project in Environmental Science - Junior"
         ],
         "medal": "gold",
@@ -2952,6 +2998,7 @@ export const awards2026 = [
         "title": "Can Waste Clean Water?",
         "students": "Anders Christopher Schnell",
         "awards": [
+          "Thermo Fisher - IJAS Region 10",
           "Illinois EPA Environmental Excellence Award - swag"
         ],
         "medal": "gold",
@@ -3031,7 +3078,9 @@ export const awards2026 = [
       {
         "title": "Which Material Purifies Water Most Effectively?",
         "students": "Lily Caroline Lane",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - State"
+        ],
         "medal": "gold",
         "division": "middleSchool"
       },
@@ -3060,6 +3109,7 @@ export const awards2026 = [
         "title": "Extracting Energy From Plants",
         "students": "Cristina Roth",
         "awards": [
+          "Thermo Fisher - State",
           "$50 Award from the SIU STEM Education Research Center"
         ],
         "medal": "gold",
@@ -3069,6 +3119,7 @@ export const awards2026 = [
         "title": "Removing Microplastics From Water with Ferrofluids",
         "students": "Nurayne Salahuddin",
         "awards": [
+          "Thermo Fisher - State",
           "NASA Environmental Effects on the Ecosystem Award"
         ],
         "medal": "gold",
@@ -3189,10 +3240,11 @@ export const awards2026 = [
       {
         "title": "TrashTracker",
         "students": "Isak Grammer, Manan Patel, & Zain Piccatto",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - IJAS Region 5"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "Effects of Air Purifiers on Air Quality",
@@ -3214,6 +3266,7 @@ export const awards2026 = [
         "title": "Chitosan Induced Flocculation for Microplastic Removal to Produce Purified Sea Salt",
         "students": "Renee Catherine Vimal Raj",
         "awards": [
+          "Thermo Fisher - IJAS Region 6",
           "Illinois EPA Environmental Excellence Award - swag"
         ],
         "medal": "gold",
@@ -3222,15 +3275,17 @@ export const awards2026 = [
       {
         "title": "Biochar-Alginate Fertilizer : A Sustainable Approach to Mitigating Agricultural Nitrogen Emissions",
         "students": "Varna Prakash",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - IJAS Region 6"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "Measuring Microplastic Concentration in Everyday Liquids",
         "students": "Reed Qaimari",
         "awards": [
+          "Thermo Fisher - IJAS Region 6",
           "Exceptional Project in Environmental Science - Junior"
         ],
         "medal": "gold",
@@ -3247,6 +3302,7 @@ export const awards2026 = [
         "title": "Go with the Flow",
         "students": "Karina Adams",
         "awards": [
+          "Thermo Fisher - State",
           "Region 6 - Lemelson Early Inventor Prize $100"
         ],
         "medal": "gold",
@@ -3256,6 +3312,7 @@ export const awards2026 = [
         "title": "Filtering The Future",
         "students": "Georgia Aviv Wagman",
         "awards": [
+          "Thermo Fisher - State",
           "Ricoh Sustainable Development Award"
         ],
         "medal": "gold",
@@ -3287,10 +3344,11 @@ export const awards2026 = [
       {
         "title": "The Chain Reaction",
         "students": "Nola Oceana Miltz",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - State"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "Creating a Biodegradable Gillnet out of Photodegradable Materials",
@@ -3300,14 +3358,16 @@ export const awards2026 = [
         "division": "highSchool"
       },
       {
-        "title": "Teal Carbon Green future: Modeling How Marsh Plant Density Impacts Carbon Storage to Mitigate Climate Change",
+        "title": "Teal Carbon Green future:  Modeling How Marsh Plant Density Impacts Carbon Storage to Mitigate Climate Change",
         "students": "imran puthawala",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - State"
+        ],
         "medal": "gold",
         "division": "middleSchool"
       },
       {
-        "title": "Using Metal Organic Frameworks Photocatalysis for Microplastic Degradation",
+        "title": "Using Metal Organic Frameworks  Photocatalysis for Microplastic Degradation",
         "students": "Akshitha Sushil",
         "awards": [
           "Monmouth College IJAS Research Scholar",
@@ -3327,18 +3387,20 @@ export const awards2026 = [
       {
         "title": "Magnetic Cleanup",
         "students": "Michael Ilias Tsikis",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - IJAS Region 6"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "There is Copper in the Water",
         "students": "Ivan Blake Goro",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - IJAS Region 6"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "Algae vs. Iron",
@@ -3369,16 +3431,16 @@ export const awards2026 = [
         "awards": [
           "Physics Luncheon - Invitation Only"
         ],
-        "medal": "other",
+        "medal": "noshow",
         "division": "highSchool"
       },
       {
-        "title": "Effects of Partial Replacement of Protein Supplements for Beef Cattle with Alternative Protein Sources on in Vitro Nutrient Degradation and Methane Emissions",
+        "title": "Effects of Partial Replacement of Protein Supplements for Beef Cattle with Alternative Protein Sources on in Vitro Nutrient Degradation and Methane Emissions",
         "students": "Thejaswini Nair",
         "awards": [
           "Physics Luncheon - Invitation Only"
         ],
-        "medal": "other",
+        "medal": "noshow",
         "division": "highSchool"
       },
       {
@@ -3387,7 +3449,7 @@ export const awards2026 = [
         "awards": [
           "Physics Luncheon - Invitation Only"
         ],
-        "medal": "other",
+        "medal": "noshow",
         "division": "highSchool"
       },
       {
@@ -3415,6 +3477,7 @@ export const awards2026 = [
         "title": "Filtering Water",
         "students": "Maria Bella Aguillon & Gabriela Borja Pesantez",
         "awards": [
+          "Thermo Fisher - State",
           "Ricoh Sustainable Development Award"
         ],
         "medal": "gold",
@@ -3430,7 +3493,9 @@ export const awards2026 = [
       {
         "title": "Not All Water Is Equal",
         "students": "Samson Karam",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - State"
+        ],
         "medal": "gold",
         "division": "middleSchool"
       },
@@ -3458,7 +3523,9 @@ export const awards2026 = [
       {
         "title": "Saltwater vs Freshwater’s biodegradation of different materials.",
         "students": "Vedanth Venkat",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - State"
+        ],
         "medal": "gold",
         "division": "middleSchool"
       },
@@ -3500,26 +3567,29 @@ export const awards2026 = [
       {
         "title": "An Analysis of Environmental and Immunization Factors Influencing Influenza Prevalence",
         "students": "Deena Ruth Mangalaraj",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - IJAS Region 1"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "How does blockage effect cerebrospinal fluid?",
         "students": "Maggie ann taylor Jackson",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - IJAS Region 1"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "Seeing Beneath the Surface: Vein Detection in Low Light Conditions",
         "students": "Shrinand Madhav Macha",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - IJAS Region 1"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "Unequal Exposure in Affluent Counties: An Epidemiological Analysis of Lead Poisoning Across Illinois and a Point-of-Use, Inexpensive Filtration Design for Preventative Measures of this Problem",
@@ -3543,7 +3613,7 @@ export const awards2026 = [
         "division": "highSchool"
       },
       {
-        "title": "CeCe ᧔•᧓: A Scalable Machine Learning Framework for the Early Detection of Chemotherapy-Induced Cardiotoxicity in Breast Cancer Populations",
+        "title": "CeCe ᧔•᧓: A Scalable Machine Learning Framework for the Early Detection  of Chemotherapy-Induced Cardiotoxicity in Breast Cancer Populations",
         "students": "Sree Dhruti Jonnavittula",
         "awards": [],
         "medal": "gold",
@@ -3552,33 +3622,38 @@ export const awards2026 = [
       {
         "title": "Strength Sleeve",
         "students": "Alex Wooley",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - IJAS Region 1"
+        ],
         "medal": "silver",
         "division": "middleSchool"
       },
       {
         "title": "Neuroblastoma and Glioblastoma Differentiation by Retinoic Acid: Epigenetic and Transcriptional changes",
         "students": "Meher Garg",
-        "awards": [],
+        "awards": [
+          "ISEF Finalist"
+        ],
         "medal": "gold",
-        "division": "highSchool",
-        "unnamedSpecial": true
+        "division": "highSchool"
       },
       {
         "title": "Convolutional Neural Network and Machine Learning to Improve Diagnosis of Pneumonia",
         "students": "VEER GARG",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - IJAS Region 10"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "Optimizing Bacteriophage-Infused Hybrid-Hydrogel Matrices to Combat Antibiotic-Resistant Infections",
         "students": "Issa Kaji Geisendorfer",
-        "awards": [],
+        "awards": [
+          "ISEF Finalist"
+        ],
         "medal": "gold",
-        "division": "highSchool",
-        "unnamedSpecial": true
+        "division": "highSchool"
       },
       {
         "title": "Antioxidant Synergy as a Neuroprotective Strategy for Alzheimer’s Disease: A Multi-Component Serum Targeting Amyloid-β Toxicity in Caenorhabditis elegans",
@@ -3588,12 +3663,13 @@ export const awards2026 = [
         "division": "highSchool"
       },
       {
-        "title": "Teeth Under Attack! How Different Sugars and Acid Affect Tooth Enamel",
+        "title": "Teeth Under Attack!   How Different Sugars and Acid Affect Tooth Enamel",
         "students": "Stephen Van Dyke",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - State"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "High Energy, Fast Heart: What does Caffeine Do?",
@@ -3627,7 +3703,8 @@ export const awards2026 = [
         "title": "Novel Machine Learning Model Developed to Optimize Embryo Selection for Frozen Embryo Transfer (FET) and to Calculate Appropriate Number of Embryos Recommended for Embryo Banking",
         "students": "Theodore Tikhomirov",
         "awards": [
-          "Reproductive Medicine Institute - Exceptional Project in Women's Health $150"
+          "ISEF Finalist",
+          "Reproductive Medicine Institute - Exceptional Project in Women's Health  $150"
         ],
         "medal": "gold",
         "division": "highSchool"
@@ -3642,15 +3719,17 @@ export const awards2026 = [
       {
         "title": "How Does Sugar Intake Affect One’s Body?",
         "students": "Nadia Chaudhari",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - IJAS Region 3"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "Impact of Monosodium Glutamate on Cells",
         "students": "Lorenzo Manno",
         "awards": [
+          "Thermo Fisher - State",
           "Exceptional Project in Health Science - Junior"
         ],
         "medal": "gold",
@@ -3664,7 +3743,7 @@ export const awards2026 = [
         "division": "highSchool"
       },
       {
-        "title": "Adipose FFAR2: Inflammation Gut Dysplasia",
+        "title": "Adipose FFAR2: Inflammation  Gut Dysplasia",
         "students": "Saatvik Viniak",
         "awards": [],
         "medal": "gold",
@@ -3746,7 +3825,7 @@ export const awards2026 = [
         "title": "Quantifying Multiplicative Barriers to Timely Neuroimaging in Pediatric Emergency Transfers: A Hospital Systems Analysis",
         "students": "Yatharth Gohel, Sohum Mahendra Kodilkar, & Seth Taukolo",
         "awards": [
-          "Reproductive Medicine Institute - Exceptional Project in Women's Health $50"
+          "Reproductive Medicine Institute - Exceptional Project in Women's Health  $50"
         ],
         "medal": "gold",
         "division": "highSchool"
@@ -3755,6 +3834,7 @@ export const awards2026 = [
         "title": "Multimodal Dehydration Prediction in Older Adults: A Low-Cost Wearable Bracelet Using Sensor Fusion and Machine Learning",
         "students": "Ashwini Ria Arun",
         "awards": [
+          "Thermo Fisher - State",
           "IJAS State - Lemelson Early Inventor Award $100",
           "Exceptional Project in Health Science - Junior"
         ],
@@ -3769,7 +3849,7 @@ export const awards2026 = [
         "division": "middleSchool"
       },
       {
-        "title": "The Effect of Chatbots vs. Live Human Interaction on Heart Rate",
+        "title": "The Effect of Chatbots  vs.  Live Human Interaction  on Heart Rate",
         "students": "Madison Riley Gorman",
         "awards": [],
         "medal": "gold",
@@ -3778,34 +3858,38 @@ export const awards2026 = [
       {
         "title": "Motion Writes the Pulse",
         "students": "Sonya Ye",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - IJAS Region 6"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "Fueling the Heart: How electrolyte drinks affect HRV during exercise",
         "students": "Teddy Wiemer",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - State"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "From Tradition to Technology: How Mouthrinses Have Transformed Bacteria Control",
         "students": "Lillian Davidson",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - State"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "Holy Molar! How Do Drinks Affect Your Mouth?",
         "students": "Alexa Emery Feinstein",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - State"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "Novel Bioadhesive Mechanical Analysis for Meniscus Tear Repair in High-Impact Athletes",
@@ -3817,18 +3901,20 @@ export const awards2026 = [
       {
         "title": "Ankle Injury Prevention",
         "students": "Gia Paris",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - IJAS Region 6"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "Board to Death",
         "students": "Makayla Rice",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - IJAS Region 6"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "Hydrocortisone Effects on Oxidative Stress in Caenorhabditis elegans",
@@ -3929,10 +4015,11 @@ export const awards2026 = [
         "title": "The Effect of Induced Hypothyroid in Gestating Pigs on Post Natal Bone Growth",
         "students": "Ishani Gupta",
         "awards": [
+          "ISEF Finalist",
           "Society of In Vitro Biology Award",
           "Bradley University - $20K Scholarship",
           "Exceptional Project in Health Science - Senior",
-          "Reproductive Medicine Institute - Exceptional Project in Women's Health $150"
+          "Reproductive Medicine Institute - Exceptional Project in Women's Health  $150"
         ],
         "medal": "gold",
         "division": "highSchool"
@@ -4099,15 +4186,17 @@ export const awards2026 = [
       {
         "title": "Nylon and Canvas Canopy",
         "students": "Aurelia Lucille Washko",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - IJAS Region 10"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "Can Moss Keep Us Warm?",
         "students": "Anish Ramkumar",
         "awards": [
+          "Thermo Fisher - State",
           "Exceptional Project in Material Science - Junior"
         ],
         "medal": "gold",
@@ -4123,10 +4212,11 @@ export const awards2026 = [
       {
         "title": "Does the material of the pot affect its boiling rate?",
         "students": "Vincent Mark DiMario",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - State"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "The Cold Truth of Batteries",
@@ -4164,7 +4254,7 @@ export const awards2026 = [
         "awards": [
           "IJAS T-Shirt Contest Winner"
         ],
-        "medal": "other",
+        "medal": "cancel",
         "division": "middleSchool"
       },
       {
@@ -4177,10 +4267,11 @@ export const awards2026 = [
       {
         "title": "How does changing the type of PVA based wood glue affect the amount of weight it can hold?",
         "students": "Joey Dahlberg & Logan James Furtek",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - IJAS Region 3"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "Effect of Aeration on Functional Performance",
@@ -4214,6 +4305,7 @@ export const awards2026 = [
         "title": "Beyond Plastic: A Future Made of Bioplastics",
         "students": "Lucas Xu",
         "awards": [
+          "Thermo Fisher - State",
           "Exceptional Project in Material Science - Junior"
         ],
         "medal": "gold",
@@ -4230,6 +4322,7 @@ export const awards2026 = [
         "title": "Emulsion-Templated Biogels For Solar-Driven Atmospheric Water Generation",
         "students": "Zainab Zulfiqar Nathani",
         "awards": [
+          "ISEF Finalist",
           "SCARF Emerging Investigator Award $1000",
           "IJAS State - Citadel Securities Innovation Prize $100"
         ],
@@ -4316,10 +4409,11 @@ export const awards2026 = [
       {
         "title": "Shower Valves and Temperature: Understanding the Shower Experience",
         "students": "Ward Haj Darweesh",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - State"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "Fabric Absorbency",
@@ -4440,7 +4534,7 @@ export const awards2026 = [
         "awards": [
           "Exceptional Project in Mathematics - Junior"
         ],
-        "medal": "other",
+        "medal": "bronze",
         "division": "middleSchool"
       },
       {
@@ -4456,6 +4550,7 @@ export const awards2026 = [
         "title": "Functional Representations and Modifications to the SEIRDV Model for Epidemiological Analysis",
         "students": "Aanvi Patel",
         "awards": [
+          "Thermo Fisher - IJAS Region 6",
           "Exceptional Project in Mathematics - Junior"
         ],
         "medal": "gold",
@@ -4525,10 +4620,11 @@ export const awards2026 = [
       {
         "title": "Cold Case: The Mystery of Missing Algae The Effect of Temperature on the Growth of Euglena gracilis Under Limited Light Conditions",
         "students": "Nellie Jean Bunnell & Jada Lynn Wells",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - IJAS Region 10"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "Antimicrobial Effectiveness",
@@ -4650,6 +4746,7 @@ export const awards2026 = [
         "title": "How do Calcium Carbonate Crystals Affect Bacterial Growth?",
         "students": "Shrikari Punjala",
         "awards": [
+          "Thermo Fisher - State",
           "Exceptional Project in Microbiology - Junior"
         ],
         "medal": "gold",
@@ -4666,6 +4763,7 @@ export const awards2026 = [
         "title": "Sanitizer Showdown",
         "students": "Victoria Choi Kang",
         "awards": [
+          "Thermo Fisher - IJAS Region 6",
           "Exceptional Project in Microbiology - Junior"
         ],
         "medal": "gold",
@@ -4688,10 +4786,11 @@ export const awards2026 = [
       {
         "title": "Pimple Patrol",
         "students": "Regina Contreras",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - IJAS Region 6"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "The Effect of Berberine and Green Tea Extract on the Growth of Bacteria",
@@ -4769,6 +4868,7 @@ export const awards2026 = [
         "title": "Seeing Radiation In Action: A Cloud Chamber Study",
         "students": "Aditya Vikas Sheth, Aarav Kumarpal Shrishrimal, & Zayan Rehman Usmani",
         "awards": [
+          "Thermo Fisher - IJAS Region 1",
           "Physics Luncheon - Invitation Only"
         ],
         "medal": "gold",
@@ -4796,6 +4896,7 @@ export const awards2026 = [
         "title": "The Effect of Soccer Shoe Impact Material on Ball Velocity, Spin Rate, and Trajectory",
         "students": "Parv Patel",
         "awards": [
+          "Thermo Fisher - State",
           "Physics Luncheon - Invitation Only"
         ],
         "medal": "gold",
@@ -4821,7 +4922,7 @@ export const awards2026 = [
         "title": "Going, Going, Gone!",
         "students": "Edison Leonard",
         "awards": [
-          "Exceptional Project in Physics - Junior"
+          "Exceptional Project in Physics  - Junior"
         ],
         "medal": "gold",
         "division": "middleSchool"
@@ -4843,9 +4944,10 @@ export const awards2026 = [
         "division": "middleSchool"
       },
       {
-        "title": "How Does the Viscosity of Liquids Affect the Speed of a Hydraulic Robot?",
+        "title": "How Does the Viscosity of Liquids Affect  the Speed of a Hydraulic Robot?",
         "students": "Liam Patrick Daly",
         "awards": [
+          "Thermo Fisher - State",
           "Physics Luncheon - Invitation Only"
         ],
         "medal": "gold",
@@ -5012,7 +5114,7 @@ export const awards2026 = [
         "awards": [
           "Physics Luncheon - Invitation Only"
         ],
-        "medal": "other",
+        "medal": "noshow",
         "division": "highSchool"
       },
       {
@@ -5060,6 +5162,7 @@ export const awards2026 = [
         "title": "Temperature of Neodymium vs. Eddy Currents",
         "students": "Macy Liu",
         "awards": [
+          "Thermo Fisher - State",
           "Physics Luncheon - Invitation Only",
           "Exceptional Project in Physics - Junior"
         ],
@@ -5111,7 +5214,7 @@ export const awards2026 = [
         "awards": [
           "Physics Luncheon - Invitation Only"
         ],
-        "medal": "other",
+        "medal": "participation",
         "division": "highSchool"
       },
       {
@@ -5191,6 +5294,7 @@ export const awards2026 = [
         "title": "The Effect of Water Depth on Water Velocity",
         "students": "Tarun Balapa",
         "awards": [
+          "Thermo Fisher - State",
           "$100 Award from the School of Physics and Applied Physics"
         ],
         "medal": "gold",
@@ -5209,9 +5313,10 @@ export const awards2026 = [
     "category": "Product/Consumer Science",
     "projects": [
       {
-        "title": "Smoking Out Bacteria: Comparing the Antimicrobial Effects of Liquid Smoke on Escherichia coli",
+        "title": "Smoking Out Bacteria: Comparing the Antimicrobial Effects of  Liquid Smoke on Escherichia coli",
         "students": "Connor Stephen Griswold & Nolan Kenneth Stephens",
         "awards": [
+          "Thermo Fisher - State",
           "Science Coach Top Researcher Award",
           "Exceptional Project in Product/Consumer Science - Junior"
         ],
@@ -5249,10 +5354,11 @@ export const awards2026 = [
       {
         "title": "Tackling Tough Stains. Which Remover is the Champ?",
         "students": "Tyler Tomeczko",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - State"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "Sole Performance",
@@ -5278,10 +5384,11 @@ export const awards2026 = [
       {
         "title": "How Clean is Your Water?",
         "students": "Will Bilbruck",
-        "awards": [],
-        "medal": "other",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "awards": [
+          "Thermo Fisher - IJAS Region 12"
+        ],
+        "medal": "cancel",
+        "division": "middleSchool"
       },
       {
         "title": "Stain Stain Go Away",
@@ -5307,15 +5414,17 @@ export const awards2026 = [
       {
         "title": "How Eggs Affect the Texture and Structure of a Cake",
         "students": "Zhannat Mir",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - State"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "What is the Most Fire Retardant Paint",
         "students": "Sahana Trushar Naik",
         "awards": [
+          "Thermo Fisher - IJAS Region 3",
           "Exceptional Project in Mathematics - Junior"
         ],
         "medal": "gold",
@@ -5332,7 +5441,7 @@ export const awards2026 = [
         "title": "Spread Ratio of Cookies Affected by Flour Type",
         "students": "Madeline Anne Canary & Amelia Esther Cantelon",
         "awards": [
-          "Exceptional Project in Product/Consumer Science - Senior"
+          "Exceptional Project in Product/Consumer Science  - Senior"
         ],
         "medal": "gold",
         "division": "highSchool"
@@ -5368,7 +5477,9 @@ export const awards2026 = [
       {
         "title": "Tack-tically Sticky",
         "students": "Nolan Chen",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - State"
+        ],
         "medal": "gold",
         "division": "middleSchool"
       },
@@ -5389,18 +5500,20 @@ export const awards2026 = [
       {
         "title": "Which Disposable Water Bottle Brand is the Best?",
         "students": "Brady Spiros Kirkiris",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - IJAS Region 6"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "Does SPF Level Really Matter?",
         "students": "Lainy Kusnitzow",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - IJAS Region 6"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "Assessing Nanocellulose as a Protective Additive in Commercial Hair Dye",
@@ -5412,18 +5525,20 @@ export const awards2026 = [
       {
         "title": "To Clean or Not To Clean",
         "students": "Jeffrey Martin Vogt",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - State"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "The Great Wipe Off",
         "students": "Ella Grace Jurkovic",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - State"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "Which Brand of Popcorn Leaves the Most Kernels?",
@@ -5477,10 +5592,11 @@ export const awards2026 = [
       {
         "title": "The Chemistry of Honey: Real versus Fake Experiment",
         "students": "Bria Lauren McClellan",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - State"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "Far Fliers - What Paper Airplane Flies the Furthest and Does the Most Loops, Dynamic Dart, Air Shark, or Fighter Jet?",
@@ -5563,6 +5679,7 @@ export const awards2026 = [
         "title": "Ice Ice Baby Makers Effect of Thawing Temperature on Sperm Cell Survival and Semen Quality in Cryopreserved Livestock Semen",
         "students": "Sydney Elizabeth Kearby & Piper Jane Shaffer",
         "awards": [
+          "Thermo Fisher - IJAS Region 10",
           "Exceptional Project in Zoology - Junior"
         ],
         "medal": "gold",
@@ -5615,17 +5732,18 @@ export const awards2026 = [
       {
         "title": "Effect of Grooming on a Horse's Heart Rate",
         "students": "Isabella Kendall Ricca",
-        "awards": [],
+        "awards": [
+          "Thermo Fisher - State"
+        ],
         "medal": "gold",
-        "division": "middleSchool",
-        "unnamedSpecial": true
+        "division": "middleSchool"
       },
       {
         "title": "The effect of L. acidophilus and B.subtilis on DNA breakage in Daphnia magna",
         "students": "Willow Evans",
         "awards": [
           "$50 Award from the School of Biological Sciences, Zoology",
-          "Exceptional Project in Zoology - Senior"
+          "Exceptional Project in Zoology  - Senior"
         ],
         "medal": "gold",
         "division": "highSchool"
@@ -5634,13 +5752,14 @@ export const awards2026 = [
         "title": "The effect of ionic zinc copper sulfate concentrations on amphipod offspring survival and water quality",
         "students": "Sreehari Balaji",
         "awards": [
-          "Exceptional Project in Zoology - Senior"
+          "Exceptional Project in Zoology  - Senior"
         ],
         "medal": "gold",
         "division": "highSchool"
       }
     ]
   }
-];
+]
+;
 
 export const categories = awards2026.map((row) => row.category);

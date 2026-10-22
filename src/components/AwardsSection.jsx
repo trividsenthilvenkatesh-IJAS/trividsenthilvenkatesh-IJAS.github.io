@@ -15,7 +15,6 @@ function matchesAwardType(project, type) {
   if (type === "epic") return hasEpic(project);
   if (type === "special") return hasOtherSpecial(project);
   if (type === "gold") return project.medal === "gold";
-  if (type === "silver") return project.medal === "silver";
   return false;
 }
 
@@ -42,7 +41,6 @@ function placeProject(project) {
     return { section: "special", project: { ...project, awards: otherAwards, variant: "special" } };
   }
   if (project.medal === "gold") return { section: "gold", project: { ...project, variant: "medal" } };
-  if (project.medal === "silver") return { section: "silver", project: { ...project, variant: "medal" } };
   return null;
 }
 
@@ -51,11 +49,9 @@ function summaryLine(groups) {
   const epic = groups.epic.highSchool.length + groups.epic.middleSchool.length;
   const special = groups.special.highSchool.length + groups.special.middleSchool.length;
   const gold = groups.gold.highSchool.length + groups.gold.middleSchool.length;
-  const silver = groups.silver.highSchool.length + groups.silver.middleSchool.length;
   if (epic) parts.push(`${epic} EPIC${epic === 1 ? "" : "s"}`);
   if (special) parts.push(`${special} Special`);
   if (gold) parts.push(`${gold} Gold`);
-  if (silver) parts.push(`${silver} Silver`);
   return parts.join(" · ");
 }
 
@@ -85,14 +81,15 @@ export default function AwardsSection({ year }) {
     return awardsData
       .filter((row) => category === "all" || row.category === category)
       .map((row) => {
-        const placed = { epic: [], special: [], gold: [], silver: [] };
+        const placed = { epic: [], special: [], gold: [] };
         sortProjects(
           row.projects.filter((project) => {
             if (division === "senior" && project.division !== "highSchool") return false;
             if (division === "junior" && project.division !== "middleSchool") return false;
             if (awardTypes.length > 0 && !awardTypes.some((type) => matchesAwardType(project, type))) return false;
             if (!needle) return true;
-            return [project.title, project.students, row.category, ...project.awards]
+            return [project.title, project.students, project.school, row.category, ...project.awards]
+              .filter(Boolean)
               .join("\n")
               .toLowerCase()
               .includes(needle);
@@ -108,13 +105,11 @@ export default function AwardsSection({ year }) {
 
         return {
           category: row.category,
-          projectCount:
-            placed.epic.length + placed.special.length + placed.gold.length + placed.silver.length,
+          projectCount: placed.epic.length + placed.special.length + placed.gold.length,
           groups: {
             epic: splitDivision(placed.epic),
             special: splitDivision(placed.special),
             gold: splitDivision(placed.gold),
-            silver: splitDivision(placed.silver),
           },
         };
       })
@@ -141,7 +136,7 @@ export default function AwardsSection({ year }) {
           Category Awards
         </h2>
         <p className="mt-2 max-w-[760px] text-[15px] leading-relaxed text-[#374151]">
-          Gold, Silver, and special award recipients from the {year} State Exposition.
+          EPIC, special, and Gold award recipients from the {year} State Exposition.
         </p>
 
         <FilterBar
@@ -173,7 +168,6 @@ export default function AwardsSection({ year }) {
                 epicAwards={row.groups.epic}
                 specialAwards={row.groups.special}
                 goldWinners={row.groups.gold}
-                silverWinners={row.groups.silver}
                 forceOpen={forceOpen}
               />
             ))

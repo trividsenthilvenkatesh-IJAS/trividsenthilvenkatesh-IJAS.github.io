@@ -10,7 +10,6 @@ export default function CategoryAccordion({
   epicAwards,
   specialAwards,
   goldWinners,
-  silverWinners,
   forceOpen = false,
 }) {
   const [open, setOpen] = useState(false);
@@ -73,13 +72,6 @@ export default function CategoryAccordion({
                 highSchool={goldWinners.highSchool}
                 middleSchool={goldWinners.middleSchool}
                 forceOpen={forceOpen}
-              />
-              <GoldWinnersAccordion
-                label="Silver Level Winners"
-                highSchool={silverWinners.highSchool}
-                middleSchool={silverWinners.middleSchool}
-                forceOpen={forceOpen}
-                borderClass="border-[#c5c9d1]"
               />
             </div>
           </div>

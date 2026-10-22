@@ -1,9 +1,6 @@
-# IJAS State Exposition Awards
+# Illinois Junior Academy of Science
 
-Illinois Junior Academy of Science State Science Exposition awards for 2025 and 2026.
-
-2025: May 2–3, 2025 · University of Illinois Urbana-Champaign
-2026: April 24–25, 2026 · Southern Illinois University, Carbondale
+Vite + React recreation of the IJAS website with React Router, plus a 2025/2026 State Exposition Awards archive.
 
 ## Run
 
@@ -19,8 +16,8 @@ npm run build
 npm run preview
 ```
 
-## Awards data
+Primary routes include `/`, `/about`, `/students`, `/teachers`, `/judges`, `/awards`, `/membership`, `/rules`, `/regionals`, and `/contact`.
 
-The 2025 records live in `src/data/awards2025.js`. The 2026 records live in `src/data/awards2026.js`. The page lists Gold recipients, Silver recipients, and any project that also received a special award. Each category has a `projects` list. An entry is `{ title, students, awards, medal, division }`. High school is grades 9–12. Middle school is grades 7–8. The collapsed line is a short count such as `3 EPICs · 5 Special · 8 Gold`, with no student names or project titles. A project appears once: under EPIC Awards if it received an EPIC, otherwise under Special / Sponsored Awards, otherwise under Gold or Silver. Sponsor names render in bold above the student names.
+## Awards archive
 
-Rows that were missing a student name or a project title are counted in `omittedIncompleteRows` and are not shown.
+`/awards` defaults to 2026. Year tabs load 2025 or 2026. The page lists EPIC awards, special/sponsored awards, and Gold winners. Silver, bronze, participation, and no-show entries appear only when they also received a special or EPIC honor. Award records stay in `src/data/` and are not copied into this README.

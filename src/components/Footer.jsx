@@ -1,22 +1,9 @@
-const pageLinks = [
-  { label: "Home", href: "https://www.ijas.org/" },
-  { label: "Students", href: "https://www.ijas.org/students" },
-  { label: "Teachers", href: "https://www.ijas.org/teachers" },
-  { label: "Contact", href: "#contact" },
-];
-
-const socialLinks = [
-  { label: "Facebook", href: "https://www.facebook.com/IJASorg" },
-  {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/in/illinois-junior-academy-of-science-a02159365",
-  },
-  { label: "Instagram", href: "https://www.instagram.com/ijas_il" },
-];
+import { footerPageLinks, socialLinks } from "@/data/nav";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer id="contact" className="bg-ijas-navy text-white">
+    <footer className="bg-ijas-navy text-white">
       <div className="mx-auto grid max-w-[1100px] gap-8 px-6 py-10 sm:grid-cols-2 lg:grid-cols-4">
         <div className="flex items-center gap-3">
           <img src="/ijas-seal.png" alt="" className="h-14 w-14 shrink-0 rounded-full object-cover" />
@@ -26,10 +13,10 @@ export default function Footer() {
         </div>
 
         <nav className="flex flex-col gap-1.5 text-[14px]" aria-label="Footer">
-          {pageLinks.map((link) => (
-            <a key={link.label} href={link.href} className="w-fit text-white/90 hover:text-white hover:underline">
+          {footerPageLinks.map((link) => (
+            <Link key={link.label} to={link.to} className="w-fit text-white/90 hover:text-white hover:underline">
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 

@@ -1,11 +1,9 @@
 const DOT = {
   gold: "bg-[#C6A15B]",
-  silver: "bg-[#9AA0A6]",
 };
 
 const DOT_LABEL = {
   gold: "Gold award",
-  silver: "Silver award",
 };
 
 export default function AwardCard({ title, students, awards = [], medal, highlight = null, variant = "medal" }) {
