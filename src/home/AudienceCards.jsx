@@ -1,5 +1,8 @@
+"use client";
+import { asset } from "@/lib/asset";
+
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/navigation";
 
 const cards = [
   {
@@ -41,7 +44,7 @@ export default function AudienceCards() {
             <CardContainer containerClassName="py-0 w-full" className="w-full">
               <CardBody className="group/card relative h-[300px] w-full overflow-hidden rounded-[6px] bg-[#111] md:h-[350px]">
                 <CardItem translateZ={80} className="absolute inset-0 h-full w-full">
-                  <img src={card.imageUrl} alt="" className="h-full w-full object-cover" />
+                  <img src={asset(card.imageUrl)} alt="" className="h-full w-full object-cover" />
                   <div className="absolute inset-0 bg-black/40" />
                 </CardItem>
                 <CardItem
