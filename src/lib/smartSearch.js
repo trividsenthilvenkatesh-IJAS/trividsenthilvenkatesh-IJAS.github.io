@@ -1,6 +1,6 @@
 import { displayAward, studentLine } from "../data/projects.js";
 import { asset } from "./asset.js";
-import { INT8_SCALE, SEARCH_DTYPE, SEMANTIC_MARGIN, SEMANTIC_THRESHOLD } from "./searchConfig.js";
+import { INT8_SCALE, SEARCH_DTYPE, SEMANTIC_MARGIN, SEMANTIC_THRESHOLD, TRANSFORMERS_BROWSER_URL } from "./searchConfig.js";
 
 export { INT8_SCALE, SEARCH_DIMS, SEARCH_DTYPE, SEARCH_MODEL, SEARCH_QUERY_PREFIX, SEMANTIC_MARGIN, SEMANTIC_THRESHOLD } from "./searchConfig.js";
 
@@ -100,7 +100,10 @@ async function loadIndex() {
 async function loadExtractor(index) {
   if (!extractorPromise) {
     extractorPromise = (async () => {
-      const { pipeline, env } = await import("@huggingface/transformers");
+      // Loaded from the jsDelivr CDN at runtime (pinned version) instead of being bundled into the
+      // static export: keeps ~400 KB out of the site and out of the gh-pages repo, whose push
+      // protection falsely flags a token-like string inside the minified library.
+      const { pipeline, env } = await import(/* webpackIgnore: true */ TRANSFORMERS_BROWSER_URL);
       env.allowLocalModels = false;
       env.useBrowserCache = true;
       env.backends.onnx.wasm.numThreads = 1;
